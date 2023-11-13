@@ -39,10 +39,10 @@ colors = ["red", "green", "blue", "purple"]
 # colors.pop()
 # print(colors)
 
-colors.insert(1,"orange")
-print(colors)
+# colors.insert(1,"orange")
+# print(colors)
 
-def my_print(all_numbers):
-    for number in all_numbers:
-        print(number, end=" ")
-my_print([1,2,3,4,5,6,7,8,9])
+# def my_print(all_numbers):
+#     for number in all_numbers:
+#         print(number, end=" ")
+# my_print([1,2,3,4,5,6,7,8,9])
