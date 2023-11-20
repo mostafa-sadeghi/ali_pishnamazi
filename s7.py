@@ -39,18 +39,38 @@ to update a student -> 4
 """
 all_students = []
 
-print(message)
-print("Enter a number : ")
-user_selection = input("> ")
-if user_selection == "0":
-    print("bye")
-    exit()
-elif user_selection == "5":
-    student = {}
-    name = input("enter student's name: ")
-    age = int(input("enter student's age: "))
-    course = input("enter course's name: ")
-    student['name'] = name
-    student['age'] = age
-    student['course'] = course
-    all_students.append(student)
+def show_all_students_info(students):
+    print(f"{'name':<25}{'age':^5}{'course':^15}")
+    for student in students:
+        print(f"{student['name']:<25}{student['age']:^5}{student['course']:^15}")
+
+
+
+while True:
+    print(message)
+    print("Enter a number : ")
+    user_selection = input("> ")
+    if user_selection == "0":
+        print("bye")
+        exit()
+
+    elif user_selection == "1":
+        show_all_students_info(all_students)
+    elif user_selection == "5":
+        student = {}
+        name = input("enter student's name: ")
+        # try:
+        #     user_input = input("enter student's age: ")
+        #     age = int(user_input)
+        # except:
+        #     print(f'{user_input} is not valid. you must enter an integer!!!')
+        age = ""
+        while not age.isdecimal():
+            age = input("enter student's age: ")
+        age = int(age)
+
+        course = input("enter course's name: ")
+        student['name'] = name
+        student['age'] = age
+        student['course'] = course
+        all_students.append(student)
