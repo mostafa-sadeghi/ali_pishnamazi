@@ -47,7 +47,8 @@ def show_all_students_info(students):
 
 
 while True:
-    print(message)
+    if input("show menu (y or n ): ") != "n":
+        print(message)
     print("Enter a number : ")
     user_selection = input("> ")
     if user_selection == "0":
@@ -74,3 +75,27 @@ while True:
         student['age'] = age
         student['course'] = course
         all_students.append(student)
+
+    elif user_selection == "2":
+        print("you are in the search section\nenter student's name: ")
+        student_name = input('> ')
+        for student in all_students:
+            if student['name'] == student_name:
+                print(f"{student_name} exists")
+                print("student's age ", student['age'])
+                print("student's course ", student['course'])
+    elif user_selection == "3":
+        print("you are in the delete section\nenter student's name: ")
+        student_name = input('> ')
+        
+        if_student_exists = False
+        for i in range(len(all_students)):
+            if all_students[i]['name'] == student_name:
+                print(f"you are deleting {student_name}")
+                if input("Are you sure? (y or n) :") == "y":
+                    del all_students[i]
+                    if_student_exists = True
+                    break
+        
+        if not if_student_exists:
+            print(f"{student_name} doen't exist")
